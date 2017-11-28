@@ -5,10 +5,10 @@
  */
 
 require('dotenv').config();
-console.log(`Running app in ${process.env.APP_ENV} environment`);
+console.log(`Running app in ${process.env.NODE_ENV} environment`);
 
 var app;
-if (process.env.APP_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app = require('../src/api/app');
 } else {
   app = require('../lib/api/app');

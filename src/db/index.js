@@ -1,22 +1,14 @@
 const debug = require('debug')('sql');
 const chalk = require('chalk');
 const Sequelize = require('sequelize');
+const env = process.env.NODE_ENV || 'development';
+var config = require('./config/database')[env];
 
-const name = process.env.DB_NAME;
-
-const url = process.env.DB_URL || `postgres://localhost:5432/${name}`;
-
-console.log(chalk.yellow(`Opening database connection to ${url}`));
+console.log(chalk.yellow(`Opening database connection to ${config.database}`));
+config['logging'] = debug;
 
 // create the database instance
-const db = module.exports = new Sequelize(url, {
-  logging: debug, // export DEBUG=sql in the environment to get SQL queries
-  define: {
-    underscored: false,       // use snake_case rather than camelCase column names
-    freezeTableName: true,   // don't change table names from the one specified
-    timestamps: true,        // automatically include timestamp columns
-  }
-});
+const db = module.exports = new Sequelize(config.database, config.username, config.password, config);
 
 // pull in our models
 require('./models');
@@ -24,7 +16,7 @@ require('./models');
 // sync the db, creating it if necessary
 function sync(retries=0, maxRetries=5) {
   return db.sync({force:false})
-    .then(ok => console.log(`Synced models to db ${url}`))
+    .then(ok => console.log(`Synced models to db`))
     .catch(fail => {
       console.log(fail)
     })
