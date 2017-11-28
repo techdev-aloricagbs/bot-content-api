@@ -1,0 +1,11 @@
+# Node Modules
+node_modules
+
+# IntelliJ
+.idea
+
+# Build library
+lib
+
+# Env vars
+.env

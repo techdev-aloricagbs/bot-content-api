@@ -1,0 +1,19 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "bot_content_designer",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "bot_content_designer",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "dialect": "postgres"
+  }
+}
