@@ -1,5 +1,5 @@
 "use strict";
 
-const Question = require('./questions');
+const Question = require('./question');
 
 module.exports = {Question};

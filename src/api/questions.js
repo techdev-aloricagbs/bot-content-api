@@ -1,4 +1,4 @@
-const Question = require('../db/models/questions');
+const Question = require('../db/models/question');
 const asyncMiddleware = require('./utils/asyncMiddleware');
 const api = require('express').Router();
 
