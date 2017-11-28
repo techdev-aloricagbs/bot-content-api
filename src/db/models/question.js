@@ -3,8 +3,9 @@ const Sequelize = require('sequelize');
 const db = require('../index');
 
 const Question = db.define('questions', {
-  title: Sequelize.STRING,
-  type: Sequelize.STRING
+  title: Sequelize.TEXT,
+  type: Sequelize.STRING,
+  answer: Sequelize.TEXT
 });
 
 module.exports = Question;
