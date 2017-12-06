@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "build": "npm run clean && babel src -d lib",
-    "clean": "rimraf lib packed"
+    "clean": "rimraf lib packed",
+    "db:migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
